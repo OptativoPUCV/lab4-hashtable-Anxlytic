@@ -40,3 +40,12 @@ Wed 24 Apr 2024 07:42:41 PM UTC:
  tests:  4|5
 total_score: 20/70
 77e8931
+Wed 24 Apr 2024 07:54:51 PM UTC: 
+ hashmap.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c:42:1: error: expected identifier or ‘(’ before ‘{’ token
+   42 | {
+      | ^
+Compilation failed
+baf0467
