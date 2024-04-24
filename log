@@ -67,3 +67,24 @@ Wed 24 Apr 2024 07:56:37 PM UTC:
  tests:  5|4
 total_score: 30/70
 8b2973c
+Wed 24 Apr 2024 08:02:02 PM UTC: 
+ hashmap.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘enlarge’:
+hashmap.c:71:66: error: expected ‘)’ before ‘;’ token
+   71 |   map->buckets = (Pair**)calloc(map->capacity * 2,sizeof(Pair **);
+      |                                ~                                 ^
+      |                                                                  )
+hashmap.c:81:18: error: expected ‘;’ before ‘}’ token
+   81 |   free(auxValor);
+      |                  ^
+      |                  ;
+   82 | }
+      | ~                 
+hashmap.c:70:10: error: unused variable ‘auxValor’ [-Werror=unused-variable]
+   70 |   Pair** auxValor=map->buckets;
+      |          ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+33f5c2e
