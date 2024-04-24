@@ -114,7 +114,7 @@ void eraseMap(HashMap * map,  char * key)
           map->buckets[posicion]->value=NULL;
           map->size--;
         }        
-        
+        posicion = (posicion + 1) % map->capacity;
       }
   }
 }
