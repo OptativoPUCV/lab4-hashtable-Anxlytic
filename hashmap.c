@@ -50,11 +50,11 @@ void insertMap(HashMap * map, char * key, void * value)
   }
   else
   {
-    if(is_equal(map->buckets[posicion]->key,key)==1)
+    if(is_equal(map->buckets[posicion]->key,key)==0)
     {
       map->buckets[posicion]->value=value;
       map->current=posicion;
-    }
+    } 
   }
 }
 
