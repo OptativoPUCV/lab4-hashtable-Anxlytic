@@ -94,24 +94,33 @@ HashMap * createMap(long capacity)
 void eraseMap(HashMap * map,  char * key) 
 {    
   int posicion = hash(key,map->capacity);
-    while(map->buckets[posicion]!=NULL && map->buckets[posicion]->key!=NULL)
+  while(map->buckets[posicion]!=NULL && map->buckets[posicion]->key!=NULL)
+    {
+      if(is_equal(map->buckets[posicion]->key,key)==1)
       {
-        if(is_equal(map->buckets[posicion]->key,key)==1)
-        {
-          map->buckets[posicion]->key=NULL;
-          map->size--;
-          return;
-        } 
-        posicion = (posicion + 1) % map->capacity;
-      }
-  }
+        map->buckets[posicion]->key=NULL;
+        map->size--;
+        return;
+      } 
+      posicion = (posicion + 1) % map->capacity;
+    }
+}
 
 
 Pair * searchMap(HashMap * map,  char * key) 
 {   
-
-
-    return NULL;
+  if(map==NULL || key==NULL)return NULL;
+  int posicion = hash(key,map->capacity);
+  while(map->buckets[posicion]!=NULL)
+    {
+      if(is_equal(map->buckets[posicion]->key,key)==1)
+      {
+        map->current=posicion;
+        return map->buckets[posicion];
+      }
+      posicion++;
+    }
+  return NULL;
 }
 
 Pair * firstMap(HashMap * map) 
