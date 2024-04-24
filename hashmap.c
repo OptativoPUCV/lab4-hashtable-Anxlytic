@@ -107,7 +107,6 @@ void eraseMap(HashMap * map,  char * key)
   {
     while(map->buckets[posicion]!=NULL)
       {
-        posicion++;
         if(posicion==map->capacity)
         {
           posicion=0;
@@ -117,8 +116,8 @@ void eraseMap(HashMap * map,  char * key)
           map->buckets[posicion]->key=NULL;
           map->buckets[posicion]->value=NULL;
           map->size--;
-          
         }        
+        posicion++;
       }
   }
 }
