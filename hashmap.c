@@ -102,6 +102,22 @@ void eraseMap(HashMap * map,  char * key)
       map->size--;
     }
   }
+  else
+  {
+    while(map->buckets[posicion]!=NULL)
+      {
+        posicion++;
+        if(posicion==map->capacity)
+        {
+          posicion=0;
+        }
+        if(is_equal(map->buckets[posicion]->key,key))
+        {
+          map->buckets[posicion]->key=NULL;
+          map->size--;
+        }
+      }
+  }
 }
 
 Pair * searchMap(HashMap * map,  char * key) 
