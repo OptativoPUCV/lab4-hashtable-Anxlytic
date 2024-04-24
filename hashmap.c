@@ -107,14 +107,14 @@ void eraseMap(HashMap * map,  char * key)
     while(map->buckets[posicion]!=NULL)
       {
         posicion++;
+        if(posicion==map->capacity)
+        {
+          posicion=0;
+        }
         if(is_equal(map->buckets[posicion]->key,key))
         {
           map->buckets[posicion]->key=NULL;
           map->size--;
-        }
-        if(posicion==map->capacity)
-        {
-          posicion=0;
         }
       }
   }
